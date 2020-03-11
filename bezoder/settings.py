@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'person.apps.PersonConfig',
     'trait.apps.TraitConfig',
+    'genetics.apps.GeneticsConfig',
 ]
 
 MIDDLEWARE = [
