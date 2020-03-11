@@ -20,12 +20,10 @@ class Snp(models.Model):
 
 class UserGenome(models.Model):
     opensnpid = models.PositiveIntegerField(blank=True)
-
-    snp = models.ManyToManyField(Snp, through='UserGenotype')
-
+    snp = models.ManyToManyField(Snp, through='Allele')
 
 
-class UserGenotype(models.Model):
+class Allele(models.Model):
     genotype=models.OneToOneField(Genotype,on_delete=models.CASCADE)
     snp = models.ForeignKey(Snp, on_delete=models.CASCADE)
     usergenome = models.ForeignKey(UserGenome, on_delete=models.CASCADE)
