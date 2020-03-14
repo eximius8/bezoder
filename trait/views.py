@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def AllTraits(request):
+
+    return render(request,'home/basenlgd.html')

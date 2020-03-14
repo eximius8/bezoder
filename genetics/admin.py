@@ -1,3 +1,9 @@
 from django.contrib import admin
+from genetics.models import Genotype, Snp, Chromosome, UserGenome, Allele
 
-# Register your models here.
+
+admin.site.register(Genotype)
+admin.site.register(Chromosome)
+admin.site.register(Snp)
+admin.site.register(UserGenome)
+admin.site.register(Allele)

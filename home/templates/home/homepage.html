@@ -1,0 +1,29 @@
+{% extends 'home/basenlgd.html' %}
+
+{% block leftmenu %}
+<a class="nav-link active" id="v-pills-home-tab" href="/" role="tab" aria-controls="v-pills-home" aria-selected="true">About</a>
+<a class="nav-link " id="v-pills-home-tab" href="/history/" role="tab" aria-controls="v-pills-home" aria-selected="true">News</a>
+<a class="nav-link " id="v-pills-home-tab" href="/contact/" role="tab" aria-controls="v-pills-home" aria-selected="true">FAQ</a>
+<a class="nav-link " id="v-pills-home-tab" href="/contact/" role="tab" aria-controls="v-pills-home" aria-selected="true">Privacy</a>
+{% endblock leftmenu %}
+
+{% block content %}
+<h2>What is Bezoder?</h2>
+  <p>Bezoder is a website, where you can decode your genetic raw data from 23andme.</p>
+  <p>All reports are created by the website community. You can create genetic reports yourself and use reports made by other people.
+  The website's aim is to give the community of interested people the tools to create and explore their genetic traits, health, and other related things.
+    </p>
+  <p>The slogan: decode your life</p>
+<h2>Who runs Bezoder?</h2>
+  <p>My name is Mikhail Trunov. I am a materials scientist with a strong passion to biology and data science. I run this website as a hobby.
+    If you want to get in touch with me, please write to <a target="_blank" href="mailto:mikhail.trunov@gmail.com?subject=Bezoder">mikhail.trunov@gmail.com</a>.
+  </p>
+<h2>Where does the name Bezoder come from?</h2>
+  <p>My home city used to be called Bezrodnoe. I modified the name a little so the domain is still available.</p>
+<h2>What about privacy and data protection?</h2>
+  <p>I do care about your data a lot and try my best to keep it safe. This website is running Django and hugely relies on its built-in safety features.
+    You can learn more technical information about Django's security on the <a target="_blank" href="https://docs.djangoproject.com/en/3.0/topics/security/">official website</a>.
+  </p>
+<h2>Cookie policy</h2>
+  <p>The author of this website uses tasty cookies to create new website features.</p>
+{% endblock content %}

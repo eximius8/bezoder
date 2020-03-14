@@ -1,0 +1,22 @@
+{% extends 'home/basenlgd.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block leftmenu %}
+  <a class="nav-link" id="v-pills-home-tab" href="{% url 'register' %}" role="tab" aria-controls="v-pills-home" aria-selected="true">Register</a>
+  <a class="nav-link active" id="v-pills-home-tab" href="{% url 'login' %}" role="tab" aria-controls="v-pills-home" aria-selected="true">Login</a>
+{% endblock leftmenu %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <fieldset class="form-group">
+    <legend>Login here</legend>
+    {{ form|crispy }}
+  </fieldset>
+  <div class="form-group">
+    <button type="submit" class="btn btn-outline-info" name="signup">Login</button>
+  </div>
+</form>
+
+{% endblock content %}
