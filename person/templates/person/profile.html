@@ -1,12 +1,32 @@
 {% extends 'home/basenlgd.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
 
 {% block leftmenu %}
-  <a class="nav-link" id="v-pills-home-tab" href="{% url 'register' %}" role="tab" aria-controls="v-pills-home" aria-selected="true">Register</a>
-  <a class="nav-link" id="v-pills-home-tab" href="{% url 'login' %}" role="tab" aria-controls="v-pills-home" aria-selected="true">Login</a>
+
+{% include "person/lmenu.html" with active="profile" %}
+
 {% endblock leftmenu %}
 
 {% block content %}
+<div class="content-section row">
 
-<h2>Profile for {{user.username}}</h2>
+  <form method="post" class="col-lg-6">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend>Update profile for
+        <strong>
+          {% if user.get_full_name %}  {{user.get_full_name}} {% else %} {{user.get_username}} {% endif %}
+        </strong>
+      </legend>
+      {{ u_form|crispy }}
+      {{ p_form|crispy }}
+    </fieldset>
+    <div class="form-group">
+      <button type="submit" class="btn btn-outline-info" name="signup">Update</button>
+    </div>
+  </form>
+</div>
 
 {% endblock content %}

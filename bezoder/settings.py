@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'person.User'
 
+RECAPTCHA_PUBLIC_KEY = '6Le8UeEUAAAAAM2qg7xQyU_7GXZaj7qJ1isCYeYg'
+RECAPTCHA_PRIVATE_KEY = '6Le8UeEUAAAAAKHq6_mi47nND7SPTyURDJUPPsgG'
+
 
 # Application definition
 
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'person.apps.PersonConfig',
     'trait.apps.TraitConfig',
     'genetics.apps.GeneticsConfig',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -126,6 +130,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

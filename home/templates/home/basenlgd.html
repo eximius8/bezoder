@@ -4,15 +4,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
       html, body {height: 100%;}
-      body {background: #ffffff;display: flex; flex-flow: column;}
+      body { display: flex; flex-flow: column;}
       footer {margin-top: auto; background: #292e33; color: #ccc;}
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bezoder | control your body, health</title>
   </head>
-  <body>
-    <header class="fluid">
+  <body class="bg-light">
+    <header>
       <nav class="navbar navbar-expand-md navbar-light" style="background-color: #eceff1; color:#1976d2;">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -20,10 +20,7 @@
         <div class="collapse navbar-collapse navbarToggler">
           <ul class="navbar-nav mr-auto">
             <a class="navbar-brand" href="{% url 'home' %}">Bezoder</a>
-            <li class="nav-item"><a class="nav-link" href="{% url 'traits' %}">Genetic traits</a></li>
-            {% if user.is_authenticated %}
-              <li class="nav-item"><a class="nav-link" href="{% url 'traits' %}">My DNA</a></li>
-            {% endif %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'traits' %}">Genetic traits</a></li>            
           </ul>
           <ul class="nav navbar-nav ml-auto">
             {% url 'register' as register_url %}
@@ -33,7 +30,7 @@
             <li class="nav-item {% if request.get_full_path == register_url or request.get_full_path == login_url or request.get_full_path == logout_url or request.get_full_path == profile_url %}active{% endif %} dropdown container-fluid">
               {% if user.is_authenticated %}
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{user.get_full_name}}
+                {% if user.get_full_name %}  {{user.get_full_name}} {% else %} {{user.get_username}} {% endif %}
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="{% url 'profile' %}">Settings</a>
@@ -57,14 +54,14 @@
     </header>
 
     <main class="fluid">
-      <div class="container-fluid pt-2 pb-2">
+      <div class="container-fluid pt-2 pb-2 bg-white">
         <div class="row">
           <div class="col-md-2">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
               {% block leftmenu %} {% endblock leftmenu %}
             </div>
           </div>
-          <div class="col-md-8">
+          <div class="col-md-8 bg-white">
             {% if messages %}
               {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}">
@@ -75,7 +72,7 @@
 
             {% block content %}{% endblock content %}
           </div>
-          <div class="col-md-2">
+          <div class="col-md-2 bg-white">
            right menu advertising
           </div>
         </div>
@@ -83,31 +80,15 @@
     </main>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <footer class="footer container-fluid">
      <div class="row pt-4">
        <div class="col-lg-6">
-         <p>Кафедра: <strong>Безопасность жизнедеятельности в строительстве и городском хозяйстве</strong></p>
-         <p>Институт архитектуры и строительства</p>
-         <p>Волгоградский государственный технический университет</p>
+         <p>Bezoder</p>
+         <p><strong>Decode your body</strong></p>
        </div>
        <div class="col-lg-6">
-         <p>400074, Волгоград, ул. Академическая, 1, к. 3-601а</p>
+         <p>Somewhere</p>
          <p>+7 (8442) 96-99-07</p>
-         <p>kafedra_bgd@vgasu.ru</p>
        </div>
      </div>
    </footer>
