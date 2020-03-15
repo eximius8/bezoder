@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'aeoyynh2ad6%)_9vz(pkm@z4%r*wkh-(l8ld0w5b-5&g4*glcb'
+SECRET_KEY =
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,8 +30,8 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'person.User'
 
-RECAPTCHA_PUBLIC_KEY = '6Le8UeEUAAAAAM2qg7xQyU_7GXZaj7qJ1isCYeYg'
-RECAPTCHA_PRIVATE_KEY = '6Le8UeEUAAAAAKHq6_mi47nND7SPTyURDJUPPsgG'
+RECAPTCHA_PUBLIC_KEY = 
+RECAPTCHA_PRIVATE_KEY = 
 
 
 # Application definition
